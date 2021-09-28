@@ -20,6 +20,7 @@ function writePassword() {
         alert("Please enter a valid number!"); 
         writePassword();   
     }
+    
     //include lowercase letters?
     var lowerCase = window.confirm("Would you like your password to include lowercase characters?")
         
