@@ -5,9 +5,12 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
 
     //choose the length of the password
-    var passwordLength = window.prompt("How many characters would you like your password to be? Please select between 8-128 characters.")
-
-        console.log(passwordLength)
+    var passwordLength = window.prompt("How many characters would you like your password to be? Please select between 8-128 characters.");
+    console.log(passwordLength);
+    if (passwordLength <= 7 || passwordLength >= 129) {
+        alert("Please enter a valid number!"); 
+        writePassword();   
+    }
     //include lowercase letters?
     var lowerCase = window.confirm("Would you like your password to include lowercase characters?")
         
@@ -26,6 +29,11 @@ function writePassword() {
     var numbers = window.confirm("Would you like your password to include numbers?")
 
         console.log(numbers)
+
+    if (!lowerCase && !upperCase && !specialCharacter && !numbers) {
+        alert("Please select at least one character type!");
+        writePassword();
+    }
 
     
   var password = generatePassword();
