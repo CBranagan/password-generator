@@ -9,38 +9,55 @@ generateBtn.addEventListener("click", writePassword);
 // Write password to the #password input
 function generatePassword() {
 
+    var passwordLength = 0;
+
+    askSize();
+
+    function askSize () {
     //choose the length of the password
-    var passwordLength = window.prompt("How many characters would you like your password to be? Please select between 8-128 characters.");
+    passwordLength = window.prompt("How many characters would you like your password to be? Please select between 8-128 characters.");
+
     console.log(passwordLength);
+
     if (passwordLength <= 7 || passwordLength >= 129) {
         alert("Please enter a valid number!"); 
-        generatePassword();
-                 
-    };
+          askSize();
+    }};
+
+    var lowerCase = 0;
+    var upperCase = 0;
+    var specialCharacter = 0;
+    var numbers = 0;
+
+    characterChoices();
+
+    function characterChoices () {
     
     //include lowercase letters?
-    var lowerCase = window.confirm("Would you like your password to include lowercase characters?")
+    lowerCase = window.confirm("Would you like your password to include lowercase characters?")
         
         console.log(lowerCase)
     //include uppercase letters?
-    var upperCase = window.confirm("Would you like your password to include Uppercase characters?")
+    upperCase = window.confirm("Would you like your password to include Uppercase characters?")
         
         console.log(upperCase)
     
     //include special characters?
-    var specialCharacter = window.confirm("Would you like your password to include special characters?")
+    specialCharacter = window.confirm("Would you like your password to include special characters?")
 
         console.log(specialCharacter)
     
     //include numbers?
-    var numbers = window.confirm("Would you like your password to include numbers?")
+    numbers = window.confirm("Would you like your password to include numbers?")
 
         console.log(numbers)  
+
+    //if no character types are selected please choose at least one character type
 
      if  (!lowerCase && !upperCase && !specialCharacter && !numbers) {
             alert("Please select at least one character type!");
             generatePassword();
-    } ;
+    }} ;
 
 
     //select characters based on the confirm windows
