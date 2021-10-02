@@ -16,14 +16,18 @@ function generatePassword() {
     function askSize () {
     //choose the length of the password
     passwordLength = window.prompt("How many characters would you like your password to be? Please select between 8-128 characters.");
+   
 
     console.log(passwordLength);
 
-    if (passwordLength <= 7 || passwordLength >= 129) {
+    if (passwordLength <= 7 || passwordLength >= 129)  {
         alert("Please enter a valid number!"); 
           askSize();
+    } else if (isNaN(passwordLength)) {
+        alert("Please enter a valid number")
+        askSize();
     }};
-
+    
     var lowerCase = 0;
     var upperCase = 0;
     var specialCharacter = 0;
@@ -56,7 +60,7 @@ function generatePassword() {
 
      if  (!lowerCase && !upperCase && !specialCharacter && !numbers) {
             alert("Please select at least one character type!");
-            generatePassword();
+            characterChoices();
     }} ;
 
 
@@ -83,6 +87,8 @@ function generatePassword() {
         var randomNumber = Math.floor(Math.random()*characterSet.length);
         password += characterSet[randomNumber]
     };
+    
+    
     return password;
     
 };
