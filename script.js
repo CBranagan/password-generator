@@ -10,6 +10,9 @@ console.log(number)
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
 // Write password to the #password input
 function writePassword() {
 
@@ -38,21 +41,27 @@ function writePassword() {
     //include numbers?
     var numbers = window.confirm("Would you like your password to include numbers?")
 
-        console.log(numbers)
+        console.log(numbers)  
 
-    if (!lowerCase && !upperCase && !specialCharacter && !numbers) {
-        alert("Please select at least one character type!");
-        writePassword();
-    }
+      if  (!lowerCase && !upperCase && !specialCharacter && !numbers) {
+            alert("Please select at least one character type!");
+            writePassword()
 
+}}
     
-  var password = generatePassword();
+    
+//   var password = generatePassword();
+  var passwordArea = document.querySelector(".card-body")
+
   var passwordText = document.querySelector("#password");
-
+  passwordText.setAttribute("style", "display: block;");
+  passwordText.textContent = "changed";
   passwordText.value = password;
+  passwordArea.appendChild(passwordText);
+  
+  
 
-}
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+
+
 
