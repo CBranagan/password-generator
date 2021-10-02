@@ -1,11 +1,5 @@
-var lower = ["a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z"];
-console.log(lower)
-var upper = ["A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z"];
-console.log(upper)
-var symbol = ["!, #, $, %, &, ', (, ), *, +, ,, -, ., /, :, ;, <, =, >, ?, @, [, \, ], ^, _, `, {, |, }, ~"];
-console.log(symbol)
-var number = ["1, 2, 3, 4, 5, 6, 7, 8, 9, 0"];
-console.log(number)
+
+
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -21,7 +15,7 @@ function writePassword() {
     console.log(passwordLength);
     if (passwordLength <= 7 || passwordLength >= 129) {
         alert("Please enter a valid number!"); 
-        writePassword();   
+        // writePassword();   
     }
     
     //include lowercase letters?
@@ -45,23 +39,36 @@ function writePassword() {
 
       if  (!lowerCase && !upperCase && !specialCharacter && !numbers) {
             alert("Please select at least one character type!");
-            writePassword()
+            writePassword();
+    } 
 
-}}
+    var characterSet = ""
+
+    if (lowerCase) {
+        characterSet += "abcdefghijklmnopqrstuvwxyz"
+    };
+    if (upperCase) {
+        characterSet += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    };
+    if (specialCharacter) {
+        characterSet += "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+    }
+    if (numbers) {
+        characterSet += "1234567890"
+    }
+
+    var password = ""
+    for (i=0; i< Number(passwordLength); i++) {
+        var randomNumber = Math.floor(Math.random()*characterSet.length);
+        password += characterSet[randomNumber]
+    };
+    return password;
+   
+
     
     
-//   var password = generatePassword();
-  var passwordArea = document.querySelector(".card-body")
-
-  var passwordText = document.querySelector("#password");
-  passwordText.setAttribute("style", "display: block;");
-  passwordText.textContent = "changed";
-  passwordText.value = password;
-  passwordArea.appendChild(passwordText);
-  
-  
-
-
+}
+console.log(password)
 
 
 
