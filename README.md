@@ -4,3 +4,8 @@
  * if all input is accepted than display password
 
  ![password-generator-photo](https://user-images.githubusercontent.com/89811148/135763679-6e2cce0f-8272-4c75-a455-e3904fb03f4d.PNG)
+ 
+ https://cbranagan.github.io/password-generator/
+ 
+ javascript written by Chad Branagan
+ 
