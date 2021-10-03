@@ -87,7 +87,7 @@ function generatePassword() {
         var randomNumber = Math.floor(Math.random()*characterSet.length);
         password += characterSet[randomNumber]
     };
-    
+    //verify it includes at least on character from each selected type
     
     return password;
     
